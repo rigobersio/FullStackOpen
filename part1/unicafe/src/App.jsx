@@ -6,9 +6,22 @@ const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
+  // no definas componentes adentro de otro componente
+  const Statistics = (props) => {
+    // ...
+  }
+
   return (
     <div>
-      code here
+      <h1>give feedback</h1>
+
+      <Botones />
+
+      <h1>statistics</h1>
+
+      <StatisticLine text="good" value ={...} />
+      <StatisticLine text="neutral" value ={...} />
+      <StatisticLine text="bad" value ={...} />
     </div>
   )
 }
