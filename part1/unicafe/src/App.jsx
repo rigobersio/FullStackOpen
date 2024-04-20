@@ -8,7 +8,11 @@ const App = () => {
 
   // no definas componentes adentro de otro componente
   const Statistics = (props) => {
-    // ...
+    return (
+      <StatisticLine text="good" value ={...} />
+      <StatisticLine text="neutral" value ={...} />
+      <StatisticLine text="bad" value ={...} />
+    )
   }
 
   return (
@@ -18,10 +22,7 @@ const App = () => {
       <Botones />
 
       <h1>statistics</h1>
-
-      <StatisticLine text="good" value ={...} />
-      <StatisticLine text="neutral" value ={...} />
-      <StatisticLine text="bad" value ={...} />
+      {(good !== 0 || neutral !== 0 || bad !== 0) ? <Statistics /> : <p>No feedback given</p>}
     </div>
   )
 }
