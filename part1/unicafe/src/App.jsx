@@ -1,5 +1,18 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
+const Statistics = () => {
+  return (
+    <StatisticLine text="good" value={good} />
+    <StatisticLine text="neutral" value={neutral} />
+    <StatisticLine text="bad" value={bad} />
+  )
+}
+
+const StatisticLine = ({ good, neutral, bad }) => {
+  return (
+    <p>{text} {value}</p>
+  )
+}
 const App = () => {
   // guarda los clics de cada botón en su propio estado
   const [good, setGood] = useState(0)
@@ -7,13 +20,7 @@ const App = () => {
   const [bad, setBad] = useState(0)
 
   // no definas componentes adentro de otro componente
-  const Statistics = (props) => {
-    return (
-      <StatisticLine text="good" value ={...} />
-      <StatisticLine text="neutral" value ={...} />
-      <StatisticLine text="bad" value ={...} />
-    )
-  }
+  
 
   return (
     <div>
