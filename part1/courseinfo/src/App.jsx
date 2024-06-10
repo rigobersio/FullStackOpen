@@ -1,6 +1,7 @@
 import React from 'react'
+import Header from './components/Header';
 
-const Header = ({ course }) => <h1>{course}</h1>;
+
 const Content = ({ part1, part2, part3, exercises1, exercises2, exercises3 }) => {
   return (
     <>
