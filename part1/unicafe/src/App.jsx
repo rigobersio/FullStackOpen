@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 
-const Statistics = () => {
+
+const StatisticLine = ({ text, value }) => {
+  return (
+    <p>{text} {value}</p>
+  )
+
+const Statistics = ({ good, neutral, bad }) => {
   return (
     <StatisticLine text="good" value={good} />
     <StatisticLine text="neutral" value={neutral} />
@@ -8,10 +14,6 @@ const Statistics = () => {
   )
 }
 
-const StatisticLine = ({ good, neutral, bad }) => {
-  return (
-    <p>{text} {value}</p>
-  )
 }
 const App = () => {
   // guarda los clics de cada botón en su propio estado
@@ -24,12 +26,16 @@ const App = () => {
 
   return (
     <div>
-      <h1>give feedback</h1>
+      <h2>give feedback</h2>
+      <button onClick={() => setGood(good + 1)}>good</button>
+      <button onClick={() => setNeutral(neutral + 1)}>neutral</button>
+      <button onClick={() => setBad(bad + 1)}>bad</button>
 
-      <Botones />
-
-      <h1>statistics</h1>
-      {(good !== 0 || neutral !== 0 || bad !== 0) ? <Statistics /> : <p>No feedback given</p>}
+      <h2>statistics</h2>
+      {(good !== 0 || neutral !== 0 || bad !== 0) ? 
+      <Statistics good={good} neutral={neutral} bad={bad} />
+      :
+      <p>No feedback given</p>}
     </div>
   )
 }
