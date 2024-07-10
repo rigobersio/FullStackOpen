@@ -1,11 +1,6 @@
 import React, { useState } from 'react'
 
 
-const StatisticLine = ({ text, value }) => {
-  return (
-    <p>{text} {value}</p>
-  )
-
 const Statistics = ({ good, neutral, bad }) => {
   return (
     <StatisticLine text="good" value={good} />
@@ -14,7 +9,6 @@ const Statistics = ({ good, neutral, bad }) => {
   )
 }
 
-}
 const App = () => {
   // guarda los clics de cada botón en su propio estado
   const [good, setGood] = useState(0)
