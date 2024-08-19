@@ -1,4 +1,5 @@
 import React from 'react';
+import Votes from './Votes';
 
 const arrAnecdotes = [
   'If it hurts, do it more often.',
@@ -10,12 +11,22 @@ const arrAnecdotes = [
   'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.',
   'The only way to go fast, is to go well.'
 ];
-const Anecdotes = ({ selected, setSelected }) => {
+
+
+const Anecdotes = ({ selected, setSelected, allVotes, setAllVotes }) => {
+
+  const handleVotes = () => {
+    const copyPropagación = {
+      ...allVotes,
+      [selected] : allVotes[selected] + 1
+    }
+    setAllVotes(copyPropagación);
+  }
 
   return (
     <>
       <p>{arrAnecdotes[selected]}</p>
-      <button onClick={() => setSelected(Math.floor(Math.random() * 8))}>next anecdote</button>
+      <Votes onSmash={handleVotes} /><button onClick={() => setSelected(Math.floor(Math.random() * 8))}>next anecdote</button>
     </>
   )
 };
